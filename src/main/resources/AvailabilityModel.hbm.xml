@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+	
+<hibernate-mapping> 
+	<class name="com.travelportal.model.AvailabilityModel" table="AVAILABILITY"> 
+		<meta attribute="class-description"> 
+			This class contains the Deal detail. 
+		</meta> 
+		
+		<id name="availId" type="string" column="avail_id"> 
+			<generator class="assigned"/> 
+		</id> 
+		<property name="flightId" column="flight_Id" />
+		<property name="availSourceVia" column="avail_source_via" /> 
+		<property name="availViaDestination" column="avail_via_destination" />
+		<property name="availSourceDestination" column="avail_source_destination" /> 
+	</class> 
+</hibernate-mapping>

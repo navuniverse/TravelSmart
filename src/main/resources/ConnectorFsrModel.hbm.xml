@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+	
+<hibernate-mapping> 
+	<class name="com.travelportal.model.ConnectorFsrModel" table="CONNECT_FSR"> 
+		<meta attribute="class-description"> 
+			This class contains the Connection detail. 
+		</meta> 
+		
+		<id name="connectorId" type="string" column="connector_id"> 
+			<generator class="assigned"/> 
+		</id> 
+		<many-to-one name="scheduleId" column="schedule_id" class="com.travelportal.model.ScheduleModel" not-null="true" lazy="false"></many-to-one>
+		<many-to-one name="flightId" column="flight_id" class="com.travelportal.model.FlightModel" not-null="true" lazy="false"></many-to-one>
+		<many-to-one name="routeId" column="route_id" class="com.travelportal.model.RouteModel" not-null="true" lazy="false"></many-to-one>
+		<many-to-one name="availId" column="avail_id" class="com.travelportal.model.AvailabilityModel" not-null="true" lazy="false"></many-to-one>
+		<many-to-one name="dealId" column="deal_id" class="com.travelportal.model.DealModel" not-null="true" lazy="false"></many-to-one>
+	</class> 
+</hibernate-mapping>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Controller Layer -->
+	<!-- Admin Controller -->
+	<bean id="adminController" class="com.travelportal.controller.AdminController">
+		<property name="adminService" ref="adminService"></property>
+		<property name="dealService" ref="dealService"></property>
+		<property name="pdfService" ref="pdfService"></property>
+		<property name="baseController" ref="baseController"></property>
+	</bean>
+
+	<!-- Base Controller -->
+	<bean id="baseController" class="com.travelportal.controller.BaseController" />
+
+	<!-- Booking Controller -->
+	<bean id="bookingController" class="com.travelportal.controller.BookingController">
+		<property name="bookingService" ref="bookingService"></property>
+		<property name="pdfService" ref="pdfService"></property>
+		<property name="ticketModel" ref="ticketModel"></property>
+		<property name="baseController" ref="baseController"></property>
+	</bean>
+
+	<!-- Login Controller -->
+	<bean id="loginController" class="com.travelportal.controller.LoginController">
+		<property name="baseController" ref="baseController"></property>
+		<property name="loginService" ref="loginService"></property>
+		<property name="dealService" ref="dealService"></property>
+	</bean>
+
+	<!-- Mapping Controller -->
+	<bean id="mappingController" class="com.travelportal.controller.MappingController">
+		<property name="dealService" ref="dealService"></property>
+		<property name="baseController" ref="baseController"></property>
+	</bean>
+
+	<!-- Register Controller -->
+	<bean id="registerController" class="com.travelportal.controller.RegisterController">
+		<property name="registrationService" ref="registrationService"></property>
+		<property name="mailService" ref="mailService"></property>
+	</bean>
+
+	<!-- RouteController -->
+	<bean id="routeController" class="com.travelportal.controller.RouteController">
+		<property name="routeService" ref="routeService"></property>
+	</bean>
+
+	<!-- Search Controller -->
+	<bean id="searchController" class="com.travelportal.controller.SearchController">
+		<property name="searchService" ref="searchService"></property>
+		<property name="baseController" ref="baseController"></property>
+	</bean>
+
+	<!-- User Controller -->
+	<bean id="userController" class="com.travelportal.controller.UserController">
+		<property name="mailService" ref="mailService"></property>
+		<property name="pdfService" ref="pdfService"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="baseController" ref="baseController"></property>
+	</bean>
+
+	<bean id="uploadController" class="com.travelportal.controller.UploadController"
+		autowire="byName"/>
+
+</beans>

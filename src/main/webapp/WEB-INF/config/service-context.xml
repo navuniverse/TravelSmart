@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Service Layer -->
+	<!-- AdminService -->
+	<bean id="adminService" class="com.travelportal.service.impl.AdminService">
+		<property name="adminDao" ref="adminDao"></property>
+	</bean>
+
+	<!-- BookingService -->
+	<bean id="bookingService" class="com.travelportal.service.impl.BookingService">
+		<property name="bookingDao" ref="bookingDao"></property>
+	</bean>
+
+	<!-- DealService -->
+	<bean id="dealService" class="com.travelportal.service.impl.DealService">
+		<property name="adminDao" ref="adminDao"></property>
+	</bean>
+
+	<!-- LoginService -->
+	<bean id="loginService" class="com.travelportal.service.impl.LoginService">
+		<property name="passwordService" ref="passwordService"></property>
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+
+	<!-- MailService -->
+	<bean id="mailService" class="com.travelportal.service.impl.MailService">
+		<property name="passwordService" ref="passwordService"></property>
+	</bean>
+
+	<!-- PasswordService -->
+	<bean id="passwordService" class="com.travelportal.service.impl.PasswordService" />
+
+	<!-- PDFService -->
+	<bean id="pdfService" class="com.travelportal.service.impl.PDFService">
+		<property name="adminDao" ref="adminDao"></property>
+		<property name="bookingDao" ref="bookingDao"></property>
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+
+	<!-- RegistrationService -->
+	<bean id="registrationService" class="com.travelportal.service.impl.RegistrationService">
+		<property name="userDao" ref="userDao"></property>
+		<property name="passwordService" ref="passwordService"></property>
+	</bean>
+
+	<!-- RouteService -->
+	<bean id="routeService" class="com.travelportal.service.impl.RouteService">
+		<property name="routeDao" ref="routeDao"></property>
+	</bean>
+
+	<!-- SearchService -->
+	<bean id="searchService" class="com.travelportal.service.impl.SearchService">
+		<property name="searchDao" ref="searchDao"></property>
+	</bean>
+
+	<!-- UploadService -->
+	<bean id="uploadService" class="com.travelportal.service.impl.UploadService">
+		<property name="adminDao" ref="adminDao"></property>
+		<property name="dealModel" ref="dealModel"></property>
+	</bean>
+
+	<!-- UserService -->
+	<bean id="userService" class="com.travelportal.service.impl.UserService">
+		<property name="passwordService" ref="passwordService"></property>
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	
+
+</beans>

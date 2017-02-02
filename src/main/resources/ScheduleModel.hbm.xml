@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.travelportal.model.ScheduleModel" table="SCHEDULE">
+		<meta attribute="class-description">
+			This class contains the Schedule detail.
+		</meta>
+
+		<id name="scheduleId" type="string" column="schedule_id">
+			<generator class="assigned" />
+		</id>
+
+		<property name="dealId" column="deal_id" type="string" />
+		<property name="flightDate" column="flight_date" type="date" />
+		<property name="sourceDepartureTime" column="source_departure_time"
+			type="string" />
+		<property name="viaArrivalTime" column="via_arrival_time"
+			type="string" />
+		<property name="viaDepartureTime" column="via_departure_time"
+			type="string" />
+		<property name="destinationArrivalTime" column="destination_arrival_time"
+			type="string" />
+		<property name="fareSourceDestination" column="fare_source_destination"
+			type="int" />
+		<property name="fareSourceVia" column="fare_source_via"
+			type="int" />
+		<property name="fareViaDestination" column="fare_via_destination"
+			type="int" />
+		<set name="connectorFsrModels" table="CONNECT_FSR" inverse="true"
+			lazy="false" fetch="select">
+			<key>
+				<column name="connector_id" not-null="true" />
+			</key>
+			<one-to-many class="com.travelportal.model.ConnectorFsrModel" />
+		</set>
+	</class>
+</hibernate-mapping>

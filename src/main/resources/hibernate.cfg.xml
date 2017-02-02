@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- List of  mapping files -->
+		<mapping resource="AvailabilityModel.hbm.xml"/>
+		<mapping resource="ConnectorFsrModel.hbm.xml"/>
+		<mapping resource="DealModel.hbm.xml"/>
+		<mapping resource="FlightModel.hbm.xml"/>
+		<mapping resource="PaymentModel.hbm.xml"/>
+		<mapping resource="RouteModel.hbm.xml"/>
+		<mapping resource="ScheduleModel.hbm.xml"/>
+		<mapping resource="TicketModel.hbm.xml"/>
+		<mapping resource="TravellerModel.hbm.xml"/>
+		<mapping resource="UserModel.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

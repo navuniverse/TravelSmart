@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect </property> 
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property> 
+		<!-- Assume test is the database name --> 
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+		<property name="hibernate.connection.url"> jdbc:oracle:thin:@127.0.0.1:1521:XE </property> 		
+		<property name="hibernate.connection.username"> system </property> 
+		<property name="hibernate.connection.password"> admin </property> 
+		<property name="hibernate.current_session_context_class">thread</property>
+		<!-- List of  mapping files -->
+		<mapping resource="AvailabilityModel.hbm.xml"/>
+		<mapping resource="ConnectorFsrModel.hbm.xml"/>
+		<mapping resource="DealModel.hbm.xml"/>
+		<mapping resource="FlightModel.hbm.xml"/>
+		<mapping resource="PaymentModel.hbm.xml"/>
+		<mapping resource="RouteModel.hbm.xml"/>
+		<mapping resource="ScheduleModel.hbm.xml"/>
+		<mapping resource="TicketModel.hbm.xml"/>
+		<mapping resource="TravellerModel.hbm.xml"/>
+		<mapping resource="UserModel.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

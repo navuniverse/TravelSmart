@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.travelportal.model.TicketModel" table="TICKET">
+		<meta attribute="class-description">
+			This class contains the Ticket detail.
+		</meta>
+
+		<id name="ticketId" type="int" column="ticket_id">
+			<generator class="increment" />
+		</id>
+
+		<property name="noOfPassenger" column="no_of_passengers"
+			type="int" />
+		<property name="totalPrice" column="total_price" type="int" />
+		<property name="travelDate" column="travel_date" type="date" />
+		<property name="source" column="source" type="string" />
+		<property name="destination" column="destination" type="string" />
+		<property name="status" column="status" type="string" />
+		<many-to-one name="userId" column="user_id"
+			class="com.travelportal.model.UserModel" not-null="true" cascade="all"
+			lazy="false"></many-to-one>
+		<property name="connectorId" column="connector_id" />
+		
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="schedulerTask" class="com.travelportal.util.SchedulerTask">
+		<property name="uploadService" ref="uploadService"></property>
+	</bean>
+
+	<!-- schedule manager bean -->
+	<bean name="schedulerJob" class="org.springframework.scheduling.quartz.JobDetailBean" scope="singleton" >
+		<property name="jobClass" value="com.travelportal.util.SchedulerJob" />
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="schedulerTask" value-ref="schedulerTask" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- Cron Trigger, run every 1 hour -->
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="schedulerJob" />
+		<property name="cronExpression" value="${scheduler.cronExpression}" />
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="jobDetails">
+			<list>
+				<ref bean="schedulerJob" />
+			</list>
+		</property>
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

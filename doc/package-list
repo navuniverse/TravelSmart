@@ -1,0 +1,12 @@
+com.travelportal.controller
+com.travelportal.controller.test
+com.travelportal.dao
+com.travelportal.dao.impl
+com.travelportal.dao.test
+com.travelportal.exception
+com.travelportal.model
+com.travelportal.service
+com.travelportal.service.impl
+com.travelportal.service.test
+com.travelportal.util
+com.travelportal.util.test

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.travelportal.model.UserModel" table="CUSTOMER">
+		<meta attribute="class-description">
+			This class contains the User detail.
+		</meta>
+
+		<id name="username" type="string" column="user_id">
+			<generator class="assigned" />
+		</id>
+
+		<property name="firstname" column="first_name" type="string" />
+		<property name="lastname" column="last_name" type="string" />
+		<property name="mobileno" column="mobile_no" type="string" />
+		<property name="password" column="password" type="string" />
+		<property name="dob" column="dob" type="date" />
+		<property name="role" column="role" type="string" />
+
+	</class>
+</hibernate-mapping>

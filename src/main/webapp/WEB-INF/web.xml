@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    id="WebApp_ID" version="2.5">
+    
+    <display-name>TravelSmart</display-name>
+    
+    <!-- Welcome File List -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <!-- Context Loader for Spring Context -->
+ 	<!-- <context-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>WEB-INF/config/spring-context.xml</param-value>
+	</context-param> -->
+
+	<!-- Listener for Spring Context Loader -->
+	<!-- <listener>
+  		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>  -->
+    
+    <!-- Dispatcher Servlet -->
+    <servlet>
+        <servlet-name>springDispatcher</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/config/spring-context.xml</param-value>
+        </init-param>        
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <!-- Mapping of Dispatcher Servlet -->
+    <servlet-mapping>
+        <servlet-name>springDispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

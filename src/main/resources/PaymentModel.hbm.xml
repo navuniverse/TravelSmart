@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.travelportal.model.PaymentModel" table="PAYMENT">
+		<meta attribute="class-description">
+			This class contains the Payment detail.
+		</meta>
+		<id name="paymentId" type="int" column="payment_id">
+			<generator class="increment" />
+		</id>
+		<property name="cardType" column="card_type" />
+		<property name="cardNo" column="card_no" />
+		<property name="cardName" column="card_name" />
+		<property name="ticketId" column="ticket_id" />
+		<property name="cardExpiry" column="card_expiry" />
+		<property name="totalPrice" column="total_price" />
+	</class>
+</hibernate-mapping>
